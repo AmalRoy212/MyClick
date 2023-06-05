@@ -1,0 +1,122 @@
+POST http://localhost:5000/api/users/signup
+Content-Type: application/json
+
+{
+  "name" : "akhil",
+  "email" : "akhil@gmail.com",
+  "password" : "12345"
+}
+
+###
+
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+  "email" : "akhil@gmail.com",
+  "password" : "12345"
+}
+
+###
+
+POST http://localhost:5000/api/users/home
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YTY4NDE4MDQ3OTA3MGEyMDc2NmNmIiwiaWF0IjoxNjg0ODE3NjcxfQ.DsSdcIKudfHoHKlQbyXVz5dDZUm3AWY5FX72sFImMd4
+
+###
+
+GET http://localhost:5000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YTY4NDE4MDQ3OTA3MGEyMDc2NmNmIiwiaWF0IjoxNjg0ODE3NjcxfQ.DsSdcIKudfHoHKlQbyXVz5dDZUm3AWY5FX72sFImMd4
+
+###
+
+PUT  http://localhost:5000/api/users/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YTY4NDE4MDQ3OTA3MGEyMDc2NmNmIiwiaWF0IjoxNjg0ODE4NjMxfQ.xCz8k1Q9gtHH4xflH-uJWfv6cQ_7BcZY6RBznYiqhPU
+Content-Type: application/json
+
+{
+  "name" : "Akhil K R"
+}
+
+###
+
+PUT  http://localhost:5000/api/users/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YTY4NDE4MDQ3OTA3MGEyMDc2NmNmIiwiaWF0IjoxNjg0ODE3NjcxfQ.DsSdcIKudfHoHKlQbyXVz5dDZUm3AWY5FX72sFImMd4
+
+###
+
+POST http://localhost:5000/api/admin/singup
+Content-Type: application/json
+
+{
+  "email":"admin@gmail.com",
+  "password":"12345"
+}
+
+###
+
+POST http://localhost:5000/api/admin/login
+Content-Type: application/json
+
+{
+  "email":"admin@gmail.com",
+  "password":"12345"
+}
+
+###
+
+PUT  http://localhost:5000/api/admin/block/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YmE4ZGIzYjEyMWIxMDFiNDZlMTVhIiwiaWF0IjoxNjg0ODE3NzgyfQ.kHGFkJWMCTM18PAAczWL5jaW8tJaooK_wQx2l0-lqAk
+Content-Type: application/json
+
+{
+  "userId" : "646a6582f97fa92a28027551"
+}
+
+###
+
+PUT  http://localhost:5000/api/admin/users/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YmE4ZGIzYjEyMWIxMDFiNDZlMTVhIiwiaWF0IjoxNjg0ODE3NzgyfQ.kHGFkJWMCTM18PAAczWL5jaW8tJaooK_wQx2l0-lqAk
+Content-Type: application/json
+
+{
+  "userId" : "646a6582f97fa92a28027551",
+  "name" : "Amal Roy"
+}
+
+###
+
+GET  http://localhost:5000/api/admin/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YmE4ZGIzYjEyMWIxMDFiNDZlMTVhIiwiaWF0IjoxNjg0ODE3NzgyfQ.kHGFkJWMCTM18PAAczWL5jaW8tJaooK_wQx2l0-lqAk
+Content-Type: application/json
+
+{
+  "userId" : "646a6582f97fa92a28027551",
+  "searchInp" : "A"
+}
+
+###
+
+POST  http://localhost:5000/api/admin/users/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YmE4ZGIzYjEyMWIxMDFiNDZlMTVhIiwiaWF0IjoxNjg0ODE3NzgyfQ.kHGFkJWMCTM18PAAczWL5jaW8tJaooK_wQx2l0-lqAk
+Content-Type: application/json
+
+{
+  "name" : "Obama",
+  "email" : "obama@gmail.com",
+  "password" : "12345"
+}
+
+###
+
+DELETE  http://localhost:5000/api/admin/users/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YmE4ZGIzYjEyMWIxMDFiNDZlMTVhIiwiaWF0IjoxNjg0ODE3NzgyfQ.kHGFkJWMCTM18PAAczWL5jaW8tJaooK_wQx2l0-lqAk
+Content-Type: application/json
+
+{
+  "userId" : "646c578df2bad36118f0ea8b"
+}
+
+###
+
+PUT http://localhost:5000/api/admin/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjQ2YmE4ZGIzYjEyMWIxMDFiNDZlMTVhIiwiaWF0IjoxNjg0ODE3NzgyfQ.kHGFkJWMCTM18PAAczWL5jaW8tJaooK_wQx2l0-lqAk
