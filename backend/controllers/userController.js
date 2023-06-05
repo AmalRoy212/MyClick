@@ -154,7 +154,7 @@ const getUser = asyncHandler(async function (req, res) {
 const updateUser = asyncHandler(async function (req, res) {
 
   const token = req.headers.authorization.split(' ')[1];
-  const tokenId = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+  const tokenId = jwt.verify(token, "abc12er345");
 
   const user_Id = req.body.user_Id ? req.body.user_Id : tokenId.user;
 

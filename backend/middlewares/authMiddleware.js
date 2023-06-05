@@ -5,8 +5,9 @@ const middleService = require('../services/middlewareService');
 const protecter = asyncHandler(async function (req, res, next) {
   const token = req.headers.authorization.split(' ')[1];
   if (token) {
+    
     try {
-      const decode = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+      const decode = jwt.verify(token, "abc12er345");
       const userId = decode.user
       const user = await middleService.findUser(userId)
       console.log(user);

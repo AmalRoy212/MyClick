@@ -5,8 +5,9 @@ const adminModel = require('../models/adminModel');
 const protecter = asyncHandler(async function (req, res, next) {
   const token = req.headers.authorization.split(' ')[1];
   if (token) {
+    PORT = 5000
     try {
-      const decode = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+      const decode = jwt.verify(token, "abc12er345");
       const user = await adminModel.findById({ _id: decode.user });
       if (token === user.accessToken) {
         if (user) {

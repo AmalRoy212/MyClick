@@ -1,0 +1,15 @@
+# netlify.toml
+
+[build]
+  command = "npm run build"  # Command to build the frontend
+  publish = "frontend/build"  # Publish directory for the frontend build output
+
+[[redirects]]
+  from = "/api/*"  # Redirect API requests to the backend server
+  to = "http://localhost:8000/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"  # Serve the frontend build files for all other requests
+  to = "/frontend/build/:splat"
+  status = 200
