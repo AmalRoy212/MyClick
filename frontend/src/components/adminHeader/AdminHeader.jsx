@@ -2,7 +2,7 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import { logout } from '../../redux-toolkit/adminAuthSlice';
 import axios from '../../config/axios';

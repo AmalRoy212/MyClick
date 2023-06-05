@@ -7,13 +7,10 @@ import axios from '../config/axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux-toolkit/authSlice'
 import Header from '../components/Navbar/Header';
-import Loading from '../components/loding/Loding'
-
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading,setLoading] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,7 +25,6 @@ function Login() {
 
   const submitHandler = async function (e) {
     e.preventDefault();
-    setLoading(true);
     try {
       axios.post('/users/login',{
         email,
@@ -37,7 +33,6 @@ function Login() {
         localStorage.setItem('token',res.data.token);
         dispatch(login(res.data.token));
         navigate('/home');
-        setLoading(false);
       })
     } catch (error) {
       toast.error(error.message);
@@ -46,7 +41,6 @@ function Login() {
 
   return (
     <>
-      {/* {loading && <Loading />} */}
       <Header className='p-0' />
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">

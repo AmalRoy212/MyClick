@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import { MDBCol, MDBContainer, MDBRow, MDBCard } from 'mdb-react-ui-kit';
 import axios from '../config/axios';
 import Header from '../components/Navbar/Header';
-import Loading from '../components/loding/Loding';
 
 
 function Signup() {
@@ -14,14 +13,12 @@ function Signup() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [image, setImage] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const navigae = useNavigate();
 
 
   const submitHandler = async function (e) {
     e.preventDefault();
-    setLoading(true);
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
@@ -39,7 +36,6 @@ function Signup() {
         }).then((res) => {
           console.log(res.data.name);
           navigae('/login');
-          setLoading(false);
         })
       } catch (error) {
         console.log(error.message)
@@ -49,7 +45,6 @@ function Signup() {
 
   return (
     <>
-      {/* {loading && <Loading />} */}
       <Header />
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">

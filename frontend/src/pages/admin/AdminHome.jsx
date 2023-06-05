@@ -5,13 +5,10 @@ import axios from '../../config/axios';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { MDBCol } from "mdbreact";
-import Loading from '../../components/loding/Loding'
-
 
 function AdminHome() {
 
   const [users, setUsers] = useState([]);
-  const [loading,setLoaing] = useState(true);
 
   const adminToken = localStorage.getItem('admin') ? localStorage.getItem('admin') : null
 
@@ -34,7 +31,6 @@ function AdminHome() {
   }
 
   useEffect(() => {
-    setLoaing(true);
     if (searchData === '') {
       axios.get('/admin/get/users', {
         headers: {
@@ -43,7 +39,6 @@ function AdminHome() {
       })
         .then((res) => {
           setUsers(res.data);
-          setLoaing(false);
         })
         .catch((error) => {
           console.error('Error fetching user data:', error);
@@ -56,7 +51,6 @@ function AdminHome() {
       })
         .then((res) => {
           setUsers(res.data);
-          setLoaing(false);
         })
         .catch((error) => {
           console.error('Error fetching user data:', error);
@@ -65,7 +59,6 @@ function AdminHome() {
   }, [users, adminToken,searchData]);
 
   const blockUser = (id) => {
-    setLoaing(true);
     axios.put('/admin/block/user', {
       userId: id
     }, {
@@ -73,12 +66,10 @@ function AdminHome() {
         'Authorization': `Bearer ${adminToken}`
       }
     }).then((res) => {
-      setLoaing(false);
     }).catch((err) => console.log(err.message))
   }
 
   const unblockUser = (userId) => {
-    setLoaing(true);
     axios.put('/admin/unblock/user', {
       userId
     }, {
@@ -91,7 +82,6 @@ function AdminHome() {
   }
 
   const deleteUser = (userId) => {
-    setLoaing(true);
     axios.delete('/admin/users/delete', {
       headers: {
         'Authorization': `Bearer ${adminToken}`
@@ -101,7 +91,6 @@ function AdminHome() {
       }
     })
       .then((res) => {
-        setLoaing(false);
       })
       .catch((error) => {
         console.error('Error deleting user:', error);
@@ -109,10 +98,8 @@ function AdminHome() {
   };
 
   const editUser = (userId) => {
-    setLoaing(true);
     localStorage.setItem('userId', userId);
     navigate('/admin/update/user');
-    setLoaing(false);
   }
 
   return (

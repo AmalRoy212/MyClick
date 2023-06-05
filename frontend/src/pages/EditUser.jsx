@@ -6,8 +6,6 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard } from 'mdb-react-ui-kit';
 import axios from '../config/axios';
 import { useSelector } from 'react-redux';
 import Header from '../components/Navbar/Header';
-import Loading from '../components/loding/Loding';
-
 
 function EditUser() {
   const [name, setName] = useState('');
@@ -16,7 +14,6 @@ function EditUser() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [image, setImage] = useState('');
   const [user, setUser] = useState();
-  const [loading,setLoading] = useState(true)
 
   const navigate = useNavigate();
 
@@ -30,14 +27,12 @@ function EditUser() {
     })
       .then((res) => {
         setUser(res.data);
-        setLoading(false);
       })
         .catch((err) => console.log(err.message));
   }, [token])
 
   const submitHandler = async function (e) {
     e.preventDefault();
-    setLoading(true);
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
@@ -55,7 +50,6 @@ function EditUser() {
           }
         }).then((res) => {
           navigate('/profile');
-          setLoading(false);
         })
       } catch (error) {
         console.log(error.message)
@@ -65,7 +59,6 @@ function EditUser() {
 
   return (
     <>
-      {/* {loading && <Loading />} */}
       <Header className='m-0 p-0' />
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">

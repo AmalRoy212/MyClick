@@ -5,8 +5,6 @@ import { toast } from 'react-toastify';
 import { MDBCol, MDBContainer, MDBRow, MDBCard } from 'mdb-react-ui-kit';
 import axios from '../../config/axios';
 import AdminHeader from '../../components/adminHeader/AdminHeader';
-import Loading from '../../components/loding/Loding';
-
 
 function CreateUser() {
   const [name, setName] = useState('');
@@ -14,14 +12,11 @@ function CreateUser() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [image, setImage] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const navigae = useNavigate();
 
-
   const submitHandler = async function (e) {
     e.preventDefault();
-    setLoading(true);
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
@@ -39,7 +34,6 @@ function CreateUser() {
         }).then((res) => {
           console.log(res.data.name);
           navigae('/admin/home');
-          setLoading(false);
         })
       } catch (error) {
         console.log(error.message)
@@ -49,7 +43,6 @@ function CreateUser() {
 
   return (
     <>
-      {/* {loading && <Loading />} */}
       <AdminHeader />
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">

@@ -4,7 +4,6 @@ import { Form, Button } from 'react-bootstrap';
 import { MDBCol, MDBContainer, MDBRow, MDBCard } from 'mdb-react-ui-kit';
 import axios from '../../config/axios';
 import AdminHeader from '../../components/adminHeader/AdminHeader';
-import Loading from '../../components/loding/Loding';
 
 
 function EditUserAdmin() {
@@ -13,7 +12,7 @@ function EditUserAdmin() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [user, setUser] = useState();
-  const [loading,setLoading] = useState(true);
+
 
 
 
@@ -31,14 +30,12 @@ function EditUserAdmin() {
     })
       .then((res) => {
         setUser(res.data);
-        setLoading(false)
       })
       .catch((err) => console.log(err.message));
   }, [token, userId]);
 
   const submitHandler = async function (e) {
     e.preventDefault();
-    setLoading(true);
     axios.put(`/admin/users/update/`, {
       headers: {
         'Authorization': `Bearer ${token}`
@@ -53,7 +50,6 @@ function EditUserAdmin() {
       .then((res) => {
         localStorage.removeItem('userId');
         navigate('/admin/home');
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error.message);
@@ -63,7 +59,6 @@ function EditUserAdmin() {
 
   return (
     <>
-      {/* {loading && <Loading />} */}
       <AdminHeader />
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">

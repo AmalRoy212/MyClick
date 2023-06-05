@@ -34,7 +34,7 @@ const router = createBrowserRouter(
           <Route path='/edit/profile' element={<EditUser />} />
         </Route>
       </Route>
-      <Route path='' element={<AdminIndex />}>
+      <Route path='/admin' element={<AdminIndex />}>
         <Route index={true} path='/admin/login' element={<AdminLogin />} />
         <Route path='/admin' element={<AdminPrivateRoutes />} >  
           <Route path='/admin/home' element={<AdminHome />} />

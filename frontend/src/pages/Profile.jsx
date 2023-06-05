@@ -6,12 +6,10 @@ import { LinkContainer } from 'react-router-bootstrap';
 import axios from '../config/axios';
 import { useSelector } from 'react-redux';
 import Header from '../components/Navbar/Header';
-import Loading from '../components/loding/Loding';
  
 function Profile() {
 
   const [user,setUser] = useState()
-  const [loading,setLoading] = useState(true)
 
   const { token } = useSelector((state) => state.auth);
 
@@ -23,14 +21,12 @@ function Profile() {
     })
       .then((res) => {
         setUser(res.data);
-        setLoading(false);   
       })
       .catch((err) => console.log(err.message));
   })
 
   return (
     <div>
-      {/* {loading && <Loading />} */}
       <Header />
       <div className="gradient-custom-2">
         <MDBContainer className=" h-100">
