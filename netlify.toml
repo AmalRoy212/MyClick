@@ -1,8 +1,9 @@
 # netlify.toml
 
 [build]
-  command = "npm run build"  # Command to build the frontend
-  publish = "frontend/build"  # Publish directory for the frontend build output
+  command = "npm run build"
+  publish = "build"
+
 
 [[redirects]]
   from = "/api/*"  # Redirect API requests to the backend server
