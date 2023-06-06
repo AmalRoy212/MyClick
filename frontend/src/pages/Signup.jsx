@@ -29,7 +29,7 @@ function Signup() {
       toast.error('Password do not match.!');
     } else {
       try {
-        axios.post('/users/signup', formData, {
+        axios.post('https://myclick.onrender.com/users/signup', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
