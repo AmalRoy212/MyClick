@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { MDBCol, MDBContainer, MDBRow, MDBCard } from 'mdb-react-ui-kit';
 import axios from '../config/axios';
 import Header from '../components/Navbar/Header';
+import axios1 from 'axios';
 
 
 function Signup() {
@@ -29,7 +30,7 @@ function Signup() {
       toast.error('Password do not match.!');
     } else {
       try {
-        axios.post('https://myclick.onrender.com/users/signup', formData, {
+        axios1.post('https://myclick.onrender.com/api/users/signup', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
